@@ -1,12 +1,15 @@
 <html>
 <body>
 <h2>Super parser!</h2>
-<center>
-    <form  action="/parse" enctype="multipart/form-data" method="post">
-        Enter file name <input type="file" accept=".xml" name="file"/>
-        Select <input type="submit" value="send"/>
+<%--enctype="multipart/form-data"--%>
+    <form action="parse" method="post" enctype="multipart/form-data">
+<%--        File:--%>
+<%--        <input type="file" name="file" id="file" /> <br/>--%>
+<%--        Destination:--%>
+        <input type="text" value="/tmp" name="destination"/>
+        </br>
+        <input type="submit" value="Upload" name="upload" id="upload" />
     </form>
-</center>
 <hr>
 </body>
 </html>
