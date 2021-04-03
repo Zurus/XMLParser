@@ -4,7 +4,8 @@
 <h2>Super parser!</h2>
 <hr>
     <form action="parse" method="post" enctype="multipart/form-data">
-        File:<br/>
+        File:
+        <br/>
         <input type="file" name="file" id="file" /> <br/>
         </br>
         <input type="submit" value="Upload" name="upload" id="upload" />

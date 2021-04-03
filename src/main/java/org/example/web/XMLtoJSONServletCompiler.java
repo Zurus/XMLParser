@@ -26,7 +26,6 @@ public class XMLtoJSONServletCompiler extends HttpServlet {
     private final XmlToJsonParser xmlToJsonParserUtil = new XmlToJsonParser();
 
     //https://docs.oracle.com/javaee/7/tutorial/servlets016.htm
-    //https://www.youtube.com/watch?v=zZJl8jZXDPQ
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         final Part filePart = req.getPart("file");

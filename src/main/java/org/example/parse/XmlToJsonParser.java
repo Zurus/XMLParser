@@ -1,7 +1,7 @@
 package org.example.parse;
 
 import org.codehaus.jackson.map.ObjectMapper;
-import org.json.JSONObject;
+import org.example.anailze.JsonAnalyzer;
 import org.json.XML;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +10,8 @@ import java.io.IOException;
 
 public class XmlToJsonParser {
     private static final Logger log = LoggerFactory.getLogger(XmlToJsonParser.class);
-    private static final String ERROR_MSG = "{XML parsing ERROR!}";
+    private final String ERROR_MSG = "{XML parsing ERROR!}";
+    private final JsonAnalyzer jsonAnalyzer = new JsonAnalyzer();
 
     public XmlToJsonParser() {
     }

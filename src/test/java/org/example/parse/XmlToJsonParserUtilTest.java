@@ -27,9 +27,4 @@ public class XmlToJsonParserUtilTest {
         System.out.println(actualJSON);
         Assert.assertEquals(EXPECTED_JSON, actualJSON);
     }
-//
-//    @Test
-//    public void testObject() {
-//        xmlToJsonParserUtil.parseWithFormatting("");
-//    }
 }
