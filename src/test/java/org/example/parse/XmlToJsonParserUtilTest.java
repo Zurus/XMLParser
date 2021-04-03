@@ -7,8 +7,10 @@ import org.junit.Test;
 public class XmlToJsonParserUtilTest {
 
     private XmlToJsonParser xmlToJsonParserUtil;
+
     private static final String EXPECTED_JSON =
         "{\"root\":{\"nodeA\":\"Node 1\"}}";
+
     private static final String ACTUAL_XML =
             "<root>\n" +
             " <nodeA>Node 1</nodeA>\n" +
@@ -25,4 +27,9 @@ public class XmlToJsonParserUtilTest {
         System.out.println(actualJSON);
         Assert.assertEquals(EXPECTED_JSON, actualJSON);
     }
+//
+//    @Test
+//    public void testObject() {
+//        xmlToJsonParserUtil.parseWithFormatting("");
+//    }
 }

@@ -21,12 +21,12 @@ import java.io.InputStream;
 
 @WebServlet(name = "ParserServlet", urlPatterns = {"/parse"})
 @MultipartConfig
-public class ParserServlet extends HttpServlet {
-    private static final Logger log = LoggerFactory.getLogger(ParserServlet.class);
+public class XMLtoJSONServletCompiler extends HttpServlet {
+    private static final Logger log = LoggerFactory.getLogger(XMLtoJSONServletCompiler.class);
     private final XmlToJsonParser xmlToJsonParserUtil = new XmlToJsonParser();
 
     //https://docs.oracle.com/javaee/7/tutorial/servlets016.htm
-//https://www.youtube.com/watch?v=zZJl8jZXDPQ
+    //https://www.youtube.com/watch?v=zZJl8jZXDPQ
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         final Part filePart = req.getPart("file");
