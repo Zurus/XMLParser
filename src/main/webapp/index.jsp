@@ -1,15 +1,15 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <body>
 <h2>Super parser!</h2>
-<%--enctype="multipart/form-data"--%>
+<hr>
     <form action="parse" method="post" enctype="multipart/form-data">
-        File:
+        File:<br/>
         <input type="file" name="file" id="file" /> <br/>
-        Destination:
-        <input type="text" value="/tmp" name="destination"/>
         </br>
         <input type="submit" value="Upload" name="upload" id="upload" />
     </form>
 <hr>
+<pre><%=session.getAttribute("text") %></pre>
 </body>
 </html>

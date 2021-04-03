@@ -13,5 +13,7 @@
 <body>
     <h3>Вай вах!</h3>
     <p>Name: <%= request.getAttribute("name") %></p>
+    <p>Name: ${name}</p>
+    <p>Name: ${"name"}</p>
 </body>
 </html>

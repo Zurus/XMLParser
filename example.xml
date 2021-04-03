@@ -1,16 +1,7 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
-<web-app>
-  <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-    <servlet-name>parser</servlet-name>
-    <servlet-class>org.example.web.ParserServlet</servlet-class>
-    <load-on-startup>0</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>parser</servlet-name>
-    <url-pattern>/parser</url-pattern>
-  </servlet-mapping>
-</web-app>
+<root>
+ <nodeA>Node 1</nodeA>
+ <nodeB>
+  <nodeC>Node 2</nodeC>
+  <nodeD>Node 3</nodeD>
+ </nodeB>
+</root>
