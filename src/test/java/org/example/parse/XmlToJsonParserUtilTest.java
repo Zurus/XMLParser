@@ -23,8 +23,7 @@ public class XmlToJsonParserUtilTest {
 
     @Test
     public void testParser() {
-        String actualJSON = xmlToJsonParserUtil.parse(ACTUAL_XML);
-        System.out.println(actualJSON);
+        String actualJSON = xmlToJsonParserUtil.parse(ACTUAL_XML).toString();
         Assert.assertEquals(EXPECTED_JSON, actualJSON);
     }
 }

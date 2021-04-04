@@ -8,7 +8,7 @@ public class NumberFounderUtil {
     private static final Logger log = LoggerFactory.getLogger(NumberFounderUtil.class);
 
     public static int findNumberInJsonValue(String jsonValue) {
-        log.info("find number in jsonValue {}", jsonValue);
+        //log.info("find number in jsonValue {}", jsonValue);
         int sum = 0;
         String[] data = jsonValue.split(" ");
         for (int i = 0; i < data.length ; i++ ) {
@@ -19,6 +19,7 @@ public class NumberFounderUtil {
 
             }
         }
+        log.info("found number in json Node {} = {}", jsonValue, sum);
         return sum;
     }
 }

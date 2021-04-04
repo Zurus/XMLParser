@@ -2,6 +2,7 @@ package org.example.parse;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.example.anailze.JsonAnalyzer;
+import org.json.JSONObject;
 import org.json.XML;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,12 +24,14 @@ public class XmlToJsonParser {
 
     public String parseWithFormatting(String xmlString) {
         log.info("parsing with formatting String {}", xmlString);
-        return formatter(parse(xmlString));
+        JSONObject jsonObject = parse(xmlString);
+        jsonObject = jsonAnalyzer.analyze(jsonObject);
+        return formatter(jsonObject.toString());
     }
 
-    public String parse (String xmlString) {
+    public JSONObject parse (String xmlString) {
         log.info("parsing {}", xmlString);
-        return XML.toJSONObject(xmlString).toString();
+        return XML.toJSONObject(xmlString);
     }
 
     private String formatter(String unformatJsonString) {

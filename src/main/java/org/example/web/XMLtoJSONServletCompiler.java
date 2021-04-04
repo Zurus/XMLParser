@@ -1,7 +1,9 @@
 
 package org.example.web;
 
+import org.example.exceptions.MaxFileSizeException;
 import org.example.parse.XmlToJsonParser;
+import org.example.validation.Validator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,7 +11,6 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -24,6 +25,7 @@ import java.io.InputStream;
 public class XMLtoJSONServletCompiler extends HttpServlet {
     private static final Logger log = LoggerFactory.getLogger(XMLtoJSONServletCompiler.class);
     private final XmlToJsonParser xmlToJsonParserUtil = new XmlToJsonParser();
+    private final static int MAX_FILE_SIZE = 1024;
 
     //https://docs.oracle.com/javaee/7/tutorial/servlets016.htm
     @Override
@@ -31,12 +33,17 @@ public class XMLtoJSONServletCompiler extends HttpServlet {
         final Part filePart = req.getPart("file");
         String jsonString = String.valueOf("");
         try (InputStream filecontent = filePart.getInputStream()) {
-            final byte[] bytes = new byte[1024];
+            //Проверяем xml на размер
+            Validator.validateFileSize(MAX_FILE_SIZE, filecontent);
+
+            final byte[] bytes = new byte[MAX_FILE_SIZE];
             filecontent.read(bytes);
             jsonString = xmlToJsonParserUtil.parseWithFormatting(bytes);
             log.info("result log {}", jsonString);
-        } catch (FileNotFoundException fne) {
+        } catch (IOException fne) {
             log.error(fne.getMessage());
+        } catch (MaxFileSizeException ex) {
+            log.error("file size exception {}", ex.getMessage());
         }
         resp.setContentType("text/html");
         HttpSession session = req.getSession();
